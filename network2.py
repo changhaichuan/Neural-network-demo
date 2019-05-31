@@ -152,7 +152,8 @@ class Network(object):
         are empty if the corresponding flag is not set.
 
         """
-        if evaluation_data: n_data = len(evaluation_data)
+        if evaluation_data: 
+            n_data = len(evaluation_data)
         n = len(training_data)
         evaluation_cost, evaluation_accuracy = [], []
         training_cost, training_accuracy = [], []
@@ -281,7 +282,8 @@ class Network(object):
         cost = 0.0
         for x, y in data:
             a = self.feedforward(x)
-            if convert: y = vectorized_result(y)
+            if convert: 
+                y = vectorized_result(y)
             cost += self.cost.fn(a, y)/len(data)
         cost += 0.5*(lmbda/len(data))*sum(
             np.linalg.norm(w)**2 for w in self.weights)
